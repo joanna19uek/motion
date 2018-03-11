@@ -2,18 +2,19 @@ function init() {
     document.addEventListener("deviceready", onDeviceReady, false);
 }
 
-var options = {frequency: 1000};
-
 function onDeviceReady() {
-    navigator.accelerometr.watchAcceleration(onSuccess, onError, options);
+    window.addEventListener("compassneedscalibration", function(event) {
+        event.preventDefault();
+    }, true);
+    detectMotion();
 }
 
-function onError() {
-    alert('Error!');
+function detectMotion() {
+    window.addEventListener("devicemotion", processEvent, true);
 }
 
-function onSuccess(acceleration) {
-    document.getElementById('x').innerHTML = 'Acceleration X: ' + acceleration.x;
-    document.getElementById('y').innerHTML = 'Acceleration Y: ' + acceleration.y;
-    document.getElementById('z').innerHTML = 'Acceleration Z: ' + acceleration.z;
+function processEvent(event) {
+    document.getElementById('x').innerHTML = 'Acceleration X: ' + event.acceleration.x;
+    document.getElementById('y').innerHTML = 'Acceleration Y: ' + event.acceleration.y;
+    document.getElementById('z').innerHTML = 'Acceleration Z: ' + event.acceleration.z;
 }
