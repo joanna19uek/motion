@@ -7,6 +7,7 @@ function onDeviceReady() {
         event.preventDefault();
     }, true);
     detectMotion();
+    window.removeEventListener("devicemotion", processEvent);
 }
 
 function detectMotion() {
