@@ -7,7 +7,6 @@ function onDeviceReady() {
         event.preventDefault();
     }, true);
     detectMotion();
-    window.removeEventListener("devicemotion", processEvent);
 }
 
 function detectMotion() {
@@ -15,7 +14,7 @@ function detectMotion() {
 }
 
 function processEvent(event) {
-    document.getElementById('x').innerHTML = 'Acceleration X: ' + event.acceleration.x;
-    document.getElementById('y').innerHTML = 'Acceleration Y: ' + event.acceleration.y;
-    document.getElementById('z').innerHTML = 'Acceleration Z: ' + event.acceleration.z;
+    document.getElementById('x').innerHTML = 'Acceleration X: ' + Math.round(event.acceleration.x);
+    document.getElementById('y').innerHTML = 'Acceleration Y: ' + Math.round(event.acceleration.y);
+    document.getElementById('z').innerHTML = 'Acceleration Z: ' + Math.round(event.acceleration.z);
 }
