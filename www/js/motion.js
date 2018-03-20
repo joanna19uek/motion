@@ -14,7 +14,7 @@ function detectMotion() {
 }
 
 function processEvent(event) {
-    document.getElementById('x').innerHTML = 'Acceleration X: ' + Math.round(event.acceleration.x);
-    document.getElementById('y').innerHTML = 'Acceleration Y: ' + Math.round(event.acceleration.y);
-    document.getElementById('z').innerHTML = 'Acceleration Z: ' + Math.round(event.acceleration.z);
+    document.getElementById('x').innerHTML = 'Acceleration X: ' + Math.round(event.accelerationIncludingGravity.x);
+    document.getElementById('y').innerHTML = 'Acceleration Y: ' + Math.round(event.accelerationIncludingGravity.y);
+    document.getElementById('z').innerHTML = 'Acceleration Z: ' + Math.round(event.accelerationIncludingGravity.z);
 }
